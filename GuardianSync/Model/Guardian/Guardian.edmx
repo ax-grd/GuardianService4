@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Guardian.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="GuardianStoreContainer">
+          <EntitySet Name="Cell" EntityType="Guardian.Store.Cell" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Inmate" EntityType="Guardian.Store.Inmate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InmateHazard" EntityType="Guardian.Store.InmateHazard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InmateKeepSeparate" EntityType="Guardian.Store.InmateKeepSeparate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InmateRestrictions" EntityType="Guardian.Store.InmateRestrictions" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Inmate_Cell" Association="Guardian.Store.FK_Inmate_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Inmate" EntitySet="Inmate" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="CellID" />
+          </Key>
+          <Property Name="CellID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CellNbr" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SectionNbr" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="RFIDuid" Type="varchar" Nullable="false" MaxLength="70" />
+          <Property Name="JSID" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SubSectionID" Type="int" />
+          <Property Name="MaxCheckTime" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="last_modified" Type="datetime" Nullable="false" />
+          <Property Name="MonitorState" Type="int" />
+          <Property Name="UserMaxCheckTime" Type="int" />
+        </EntityType>
+        <EntityType Name="Inmate">
+          <Key>
+            <PropertyRef Name="SSN" />
+          </Key>
+          <Property Name="SSN" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CurrentBookingNbr" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CellID" Type="int" Nullable="false" />
+          <Property Name="InmateLastName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="InmateFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="InmateMidName" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="varchar" MaxLength="50" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" />
+          <Property Name="Weight" Type="varchar" MaxLength="50" />
+          <Property Name="Ethnic" Type="varchar" MaxLength="50" />
+          <Property Name="Hair" Type="varchar" MaxLength="50" />
+          <Property Name="Eyes" Type="varchar" MaxLength="50" />
+          <Property Name="Skin" Type="varchar" MaxLength="50" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="ScarsTatooNar" Type="varchar" MaxLength="50" />
+          <Property Name="ScarsTatooPhoto" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="varchar" MaxLength="50" />
+          <Property Name="SpokenLanguages" Type="varchar" MaxLength="50" />
+          <Property Name="WorkRelease" Type="varchar" MaxLength="50" />
+          <Property Name="Height" Type="varchar" MaxLength="50" />
+          <Property Name="Race" Type="varchar" MaxLength="50" />
+          <Property Name="Facial" Type="varchar" MaxLength="50" />
+          <Property Name="OutofCellID" Type="int" />
+          <Property Name="RecDate" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialStatus" Type="varchar" MaxLength="50" />
+          <Property Name="RFIDuid" Type="varchar" MaxLength="70" />
+          <Property Name="photobinary" Type="varbinary(max)" />
+          <Property Name="last_modified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InmateHazard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookingNbr" Type="varchar" MaxLength="7" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" />
+          <Property Name="Hazard_Code" Type="varchar" MaxLength="2" />
+          <Property Name="Hazard_Literal" Type="varchar" MaxLength="42" />
+          <Property Name="Start_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Start_Time" Type="varchar" MaxLength="5" />
+          <Property Name="Authorized_by_Operator" Type="varchar" MaxLength="6" />
+          <Property Name="Clear_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Clear_Time" Type="varchar" MaxLength="5" />
+          <Property Name="Cleared_by_Operator" Type="varchar" MaxLength="6" />
+          <Property Name="Remarks" Type="varchar" MaxLength="204" />
+        </EntityType>
+        <EntityType Name="InmateKeepSeparate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookingNbr" Type="varchar" MaxLength="7" />
+          <Property Name="SSN_Inmate_must_be_kept_away_from" Type="varchar" MaxLength="9" />
+          <Property Name="SSN_inmate" Type="varchar" MaxLength="9" />
+          <Property Name="Start_Date" Type="datetime" />
+          <Property Name="End_Date" Type="datetime" />
+          <Property Name="Clear_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="InmateRestrictions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BookingNbr" Type="varchar" MaxLength="7" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" />
+          <Property Name="Lockdown" Type="varchar" MaxLength="1" />
+          <Property Name="Lockdown_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Lockdown_From_Time" Type="varchar" MaxLength="5" />
+          <Property Name="Lockdown_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Lockdown_To_Time" Type="varchar" MaxLength="5" />
+          <Property Name="Lockdown_Days" Type="varchar" MaxLength="3" />
+          <Property Name="Phone" Type="varchar" MaxLength="1" />
+          <Property Name="Phone_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Phone_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Phone_Days" Type="varchar" MaxLength="3" />
+          <Property Name="Rem_Program" Type="varchar" MaxLength="1" />
+          <Property Name="Program_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Program_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Program_Days" Type="varchar" MaxLength="3" />
+          <Property Name="Commissary" Type="varchar" MaxLength="1" />
+          <Property Name="Comm_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Comm_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Comm_Days" Type="varchar" MaxLength="3" />
+          <Property Name="Television" Type="varchar" MaxLength="1" />
+          <Property Name="TV_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="TV_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="TV_Days" Type="varchar" MaxLength="3" />
+          <Property Name="Visitation" Type="varchar" MaxLength="1" />
+          <Property Name="Visit_From_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Visit_To_Date" Type="varchar" MaxLength="8" />
+          <Property Name="Visit_Days" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <Association Name="FK_Inmate_Cell">
+          <End Role="Cell" Type="Guardian.Store.Cell" Multiplicity="1" />
+          <End Role="Inmate" Type="Guardian.Store.Inmate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cell">
+              <PropertyRef Name="CellID" />
+            </Principal>
+            <Dependent Role="Inmate">
+              <PropertyRef Name="CellID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Guardian" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="GuardianEntity">
+          <EntitySet Name="InmateRestrictions" EntityType="Guardian.InmateRestriction" />
+          <EntitySet Name="InmateKeepSeparates" EntityType="Guardian.InmateKeepSeparate" />
+          <EntitySet Name="Cells" EntityType="Guardian.Cell" />
+          <EntitySet Name="Inmates" EntityType="Guardian.Inmate" />
+          <AssociationSet Name="FK_Inmate_Cell" Association="Guardian.FK_Inmate_Cell">
+            <End Role="Cell" EntitySet="Cells" />
+            <End Role="Inmate" EntitySet="Inmates" />
+          </AssociationSet>
+          <EntitySet Name="InmateHazards" EntityType="Guardian.InmateHazard" />
+        </EntityContainer>
+        <EntityType Name="InmateRestriction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookingNbr" Type="String" MaxLength="7" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="SSN" Type="String" MaxLength="9" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown_From_Time" Type="String" MaxLength="5" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown_To_Time" Type="String" MaxLength="5" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Lockdown_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Phone" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Phone_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Phone_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Phone_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Rem_Program" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Program_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Program_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Program_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Commissary" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Comm_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Comm_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Comm_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Television" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="TV_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="TV_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="TV_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Visitation" Type="String" MaxLength="1" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Visit_From_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Visit_To_Date" Type="String" MaxLength="8" Unicode="false" FixedLength="false" Nullable="true" />
+          <Property Name="Visit_Days" Type="String" MaxLength="3" Unicode="false" FixedLength="false" Nullable="true" />
+        </EntityType>
+        <EntityType Name="InmateKeepSeparate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BookingNbr" MaxLength="7" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="SSN_Inmate_must_be_kept_away_from" MaxLength="9" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="SSN_inmate" MaxLength="9" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="DateTime" Name="Start_Date" Precision="3" Nullable="true" />
+          <Property Type="DateTime" Name="End_Date" Precision="3" Nullable="true" />
+          <Property Type="DateTime" Name="Clear_Date" Precision="3" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Cell">
+          <Key>
+            <PropertyRef Name="CellID" />
+          </Key>
+          <Property Type="Int32" Name="CellID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CellNbr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SectionNbr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Capacity" />
+          <Property Type="String" Name="RFIDuid" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="JSID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SubSectionID" />
+          <Property Type="Int32" Name="MaxCheckTime" />
+          <Property Type="Boolean" Name="Active" />
+          <Property Type="DateTime" Name="last_modified" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="MonitorState" />
+          <Property Type="Int32" Name="UserMaxCheckTime" />
+          <NavigationProperty Name="Inmates" Relationship="Guardian.FK_Inmate_Cell" FromRole="Cell" ToRole="Inmate" />
+        </EntityType>
+        <EntityType Name="Inmate">
+          <Key>
+            <PropertyRef Name="SSN" />
+          </Key>
+          <Property Type="String" Name="SSN" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CurrentBookingNbr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InmateLastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InmateFirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="InmateMidName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DOB" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Sex" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Weight" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ethnic" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Hair" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Eyes" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Skin" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Religion" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ScarsTatooNar" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ScarsTatooPhoto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Photo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SpokenLanguages" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="WorkRelease" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Height" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Race" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Facial" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="OutofCellID" />
+          <Property Type="String" Name="RecDate" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SpecialStatus" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RFIDuid" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="photobinary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Cell" Relationship="Guardian.FK_Inmate_Cell" FromRole="Inmate" ToRole="Cell" />
+          <Property Type="DateTime" Name="last_modified" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Inmate_Cell">
+          <End Type="Guardian.Cell" Role="Cell" Multiplicity="1" />
+          <End Type="Guardian.Inmate" Role="Inmate" Multiplicity="*" />
+        </Association>
+        <EntityType Name="InmateHazard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BookingNbr" MaxLength="7" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="SSN" MaxLength="9" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Hazard_Code" MaxLength="2" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Hazard_Literal" MaxLength="42" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Start_Date" MaxLength="8" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Start_Time" MaxLength="5" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Authorized_by_Operator" MaxLength="6" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Clear_Date" MaxLength="8" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Clear_Time" MaxLength="5" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Cleared_by_Operator" MaxLength="6" FixedLength="false" Unicode="false" Nullable="true" />
+          <Property Type="String" Name="Remarks" MaxLength="204" FixedLength="false" Unicode="false" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="GuardianStoreContainer" CdmEntityContainer="GuardianEntity">
+          <EntitySetMapping Name="InmateRestrictions">
+            <EntityTypeMapping TypeName="Guardian.InmateRestriction">
+              <MappingFragment StoreEntitySet="InmateRestrictions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BookingNbr" ColumnName="BookingNbr" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Lockdown" ColumnName="Lockdown" />
+                <ScalarProperty Name="Lockdown_From_Date" ColumnName="Lockdown_From_Date" />
+                <ScalarProperty Name="Lockdown_From_Time" ColumnName="Lockdown_From_Time" />
+                <ScalarProperty Name="Lockdown_To_Date" ColumnName="Lockdown_To_Date" />
+                <ScalarProperty Name="Lockdown_To_Time" ColumnName="Lockdown_To_Time" />
+                <ScalarProperty Name="Lockdown_Days" ColumnName="Lockdown_Days" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Phone_From_Date" ColumnName="Phone_From_Date" />
+                <ScalarProperty Name="Phone_To_Date" ColumnName="Phone_To_Date" />
+                <ScalarProperty Name="Phone_Days" ColumnName="Phone_Days" />
+                <ScalarProperty Name="Rem_Program" ColumnName="Rem_Program" />
+                <ScalarProperty Name="Program_From_Date" ColumnName="Program_From_Date" />
+                <ScalarProperty Name="Program_To_Date" ColumnName="Program_To_Date" />
+                <ScalarProperty Name="Program_Days" ColumnName="Program_Days" />
+                <ScalarProperty Name="Commissary" ColumnName="Commissary" />
+                <ScalarProperty Name="Comm_From_Date" ColumnName="Comm_From_Date" />
+                <ScalarProperty Name="Comm_To_Date" ColumnName="Comm_To_Date" />
+                <ScalarProperty Name="Comm_Days" ColumnName="Comm_Days" />
+                <ScalarProperty Name="Television" ColumnName="Television" />
+                <ScalarProperty Name="TV_From_Date" ColumnName="TV_From_Date" />
+                <ScalarProperty Name="TV_To_Date" ColumnName="TV_To_Date" />
+                <ScalarProperty Name="TV_Days" ColumnName="TV_Days" />
+                <ScalarProperty Name="Visitation" ColumnName="Visitation" />
+                <ScalarProperty Name="Visit_From_Date" ColumnName="Visit_From_Date" />
+                <ScalarProperty Name="Visit_To_Date" ColumnName="Visit_To_Date" />
+                <ScalarProperty Name="Visit_Days" ColumnName="Visit_Days" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InmateKeepSeparates">
+            <EntityTypeMapping TypeName="Guardian.InmateKeepSeparate">
+              <MappingFragment StoreEntitySet="InmateKeepSeparate">
+                <ScalarProperty Name="Clear_Date" ColumnName="Clear_Date" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="SSN_inmate" ColumnName="SSN_inmate" />
+                <ScalarProperty Name="SSN_Inmate_must_be_kept_away_from" ColumnName="SSN_Inmate_must_be_kept_away_from" />
+                <ScalarProperty Name="BookingNbr" ColumnName="BookingNbr" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cells">
+            <EntityTypeMapping TypeName="Guardian.Cell">
+              <MappingFragment StoreEntitySet="Cell">
+                <ScalarProperty Name="UserMaxCheckTime" ColumnName="UserMaxCheckTime" />
+                <ScalarProperty Name="MonitorState" ColumnName="MonitorState" />
+                <ScalarProperty Name="last_modified" ColumnName="last_modified" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="MaxCheckTime" ColumnName="MaxCheckTime" />
+                <ScalarProperty Name="SubSectionID" ColumnName="SubSectionID" />
+                <ScalarProperty Name="JSID" ColumnName="JSID" />
+                <ScalarProperty Name="RFIDuid" ColumnName="RFIDuid" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="SectionNbr" ColumnName="SectionNbr" />
+                <ScalarProperty Name="CellNbr" ColumnName="CellNbr" />
+                <ScalarProperty Name="CellID" ColumnName="CellID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inmates">
+            <EntityTypeMapping TypeName="Guardian.Inmate">
+              <MappingFragment StoreEntitySet="Inmate">
+                <ScalarProperty Name="last_modified" ColumnName="last_modified" />
+                <ScalarProperty Name="photobinary" ColumnName="photobinary" />
+                <ScalarProperty Name="RFIDuid" ColumnName="RFIDuid" />
+                <ScalarProperty Name="SpecialStatus" ColumnName="SpecialStatus" />
+                <ScalarProperty Name="RecDate" ColumnName="RecDate" />
+                <ScalarProperty Name="OutofCellID" ColumnName="OutofCellID" />
+                <ScalarProperty Name="Facial" ColumnName="Facial" />
+                <ScalarProperty Name="Race" ColumnName="Race" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="WorkRelease" ColumnName="WorkRelease" />
+                <ScalarProperty Name="SpokenLanguages" ColumnName="SpokenLanguages" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ScarsTatooPhoto" ColumnName="ScarsTatooPhoto" />
+                <ScalarProperty Name="ScarsTatooNar" ColumnName="ScarsTatooNar" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Skin" ColumnName="Skin" />
+                <ScalarProperty Name="Eyes" ColumnName="Eyes" />
+                <ScalarProperty Name="Hair" ColumnName="Hair" />
+                <ScalarProperty Name="Ethnic" ColumnName="Ethnic" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="InmateMidName" ColumnName="InmateMidName" />
+                <ScalarProperty Name="InmateFirstName" ColumnName="InmateFirstName" />
+                <ScalarProperty Name="InmateLastName" ColumnName="InmateLastName" />
+                <ScalarProperty Name="CurrentBookingNbr" ColumnName="CurrentBookingNbr" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Inmate_Cell" TypeName="Guardian.FK_Inmate_Cell" StoreEntitySet="Inmate">
+            <EndProperty Name="Inmate">
+              <ScalarProperty Name="SSN" ColumnName="SSN" />
+            </EndProperty>
+            <EndProperty Name="Cell">
+              <ScalarProperty Name="CellID" ColumnName="CellID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="InmateHazards">
+            <EntityTypeMapping TypeName="Guardian.InmateHazard">
+              <MappingFragment StoreEntitySet="InmateHazard">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Cleared_by_Operator" ColumnName="Cleared_by_Operator" />
+                <ScalarProperty Name="Clear_Time" ColumnName="Clear_Time" />
+                <ScalarProperty Name="Clear_Date" ColumnName="Clear_Date" />
+                <ScalarProperty Name="Authorized_by_Operator" ColumnName="Authorized_by_Operator" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="Hazard_Literal" ColumnName="Hazard_Literal" />
+                <ScalarProperty Name="Hazard_Code" ColumnName="Hazard_Code" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="BookingNbr" ColumnName="BookingNbr" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

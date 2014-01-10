@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5af4b5aacb0a4552bf6d104a7c1f2dd6" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="Guardian.InmateRestriction" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian.InmateKeepSeparate" Width="1.5" PointX="4.375" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Guardian.Cell" Width="1.5" PointX="12.25" PointY="11.75" />
+        <EntityTypeShape EntityType="Guardian.Inmate" Width="1.5" PointX="8.2160561905317273" PointY="1.023064479708236" />
+        <AssociationConnector Association="Guardian.FK_Inmate_Cell" />
+        <EntityTypeShape EntityType="Guardian.InmateHazard" Width="1.5" PointX="2.25" PointY="5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
