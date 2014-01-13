@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace GuardianSync.Model.Tiburon {
+namespace GuardianService4.Model.Tiburon {
     
     
     /// <summary>
@@ -4179,7 +4179,7 @@ namespace GuardianSync.Model.Tiburon {
         }
     }
 }
-namespace GuardianSync.Model.Tiburon.TiburonTableAdapters {
+namespace GuardianService4.Model.Tiburon.TiburonTableAdapters {
     
     
     /// <summary>
@@ -4321,7 +4321,7 @@ namespace GuardianSync.Model.Tiburon.TiburonTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GuardianSync.Properties.Settings.Default.TRN79ConnectionString;
+            this._connection.ConnectionString = global::GuardianService4.Properties.Settings.Default.TRN79ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4494,7 +4494,7 @@ namespace GuardianSync.Model.Tiburon.TiburonTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GuardianSync.Properties.Settings.Default.TRN79ConnectionString;
+            this._connection.ConnectionString = global::GuardianService4.Properties.Settings.Default.TRN79ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4689,7 +4689,7 @@ namespace GuardianSync.Model.Tiburon.TiburonTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GuardianSync.Properties.Settings.Default.TRN79ConnectionString;
+            this._connection.ConnectionString = global::GuardianService4.Properties.Settings.Default.TRN79ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4872,7 +4872,7 @@ namespace GuardianSync.Model.Tiburon.TiburonTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GuardianSync.Properties.Settings.Default.TRN79ConnectionString;
+            this._connection.ConnectionString = global::GuardianService4.Properties.Settings.Default.TRN79ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

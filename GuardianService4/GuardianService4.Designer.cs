@@ -1,6 +1,6 @@
-﻿namespace GuardianSync
+﻿namespace GuardianService4
 {
-    partial class GuardianSyncService
+    partial class GuardianService4
     {
         /// <summary> 
         /// Required designer variable.

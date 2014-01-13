@@ -6,7 +6,7 @@ using System.Text;
 using System.ServiceProcess;
 
 using System.Configuration.Install;
-using GuardianSync;
+using GuardianService4;
 
 namespace Install
 {
@@ -21,7 +21,7 @@ namespace Install
                 procesServiceInstaller.Account = ServiceAccount.LocalSystem;
 
                 var serviceInstallerObj = new ServiceInstaller();
-                var path = String.Format("/assemblypath={0}", AppDomain.CurrentDomain.BaseDirectory + "GuardianSync.exe");
+                var path = String.Format("/assemblypath={0}", AppDomain.CurrentDomain.BaseDirectory + "GuardianService4.exe");
                 String[] cmdline = { path };
 
                 var context = new InstallContext(AppDomain.CurrentDomain.BaseDirectory + "TraceLog.txt", cmdline);

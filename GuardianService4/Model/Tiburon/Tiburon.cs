@@ -1,17 +1,17 @@
-﻿namespace GuardianSync.Model.Tiburon
+﻿namespace GuardianService4.Model.Tiburon
 {
     
     
     public partial class Tiburon {
     }
 }
-namespace GuardianSync.Model.Tiburon {
+namespace GuardianService4.Model.Tiburon {
     
     
     public partial class Tiburon {
     }
 }
-namespace GuardianSync.Model.Tiburon {
+namespace GuardianService4.Model.Tiburon {
     
     
     public partial class Tiburon {

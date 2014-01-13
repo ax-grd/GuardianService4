@@ -9,13 +9,13 @@ using System.ServiceProcess;
 using System.Text;
 using System.Timers;
 
-namespace GuardianSync
+namespace GuardianService4
 {
-    public partial class GuardianSyncService : ServiceBase
+    public partial class GuardianService4 : ServiceBase
     {
         Timer _timer = null;
 
-        public GuardianSyncService()
+        public GuardianService4()
         {
             InitializeComponent();
             try

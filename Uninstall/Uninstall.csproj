@@ -46,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GuardianSync\GuardianSync.csproj">
+    <ProjectReference Include="..\GuardianService4\GuardianService4.csproj">
       <Project>{6a9dc6f9-7f27-4d43-a5b8-aeffda496ef5}</Project>
-      <Name>GuardianSync</Name>
+      <Name>GuardianService4</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

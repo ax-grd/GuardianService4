@@ -29,8 +29,8 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup>
-		<ProjectReference Include="..\GuardianSync\GuardianSync.csproj">
-			<Name>GuardianSync</Name>
+		<ProjectReference Include="..\GuardianService4\GuardianService4.csproj">
+			<Name>GuardianService4</Name>
 			<Project>{6A9DC6F9-7F27-4D43-A5B8-AEFFDA496EF5}</Project>
 		</ProjectReference>
 	</ItemGroup>

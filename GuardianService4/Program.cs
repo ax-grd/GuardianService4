@@ -7,7 +7,7 @@ using System.ServiceProcess;
 using System.Text;
 
 
-namespace GuardianSync
+namespace GuardianService4
 {
     static class Program
     {
@@ -20,7 +20,7 @@ namespace GuardianSync
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[] 
             { 
-                new GuardianSyncService() 
+                new GuardianService4() 
             };
 
             ServiceBase.Run(ServicesToRun);

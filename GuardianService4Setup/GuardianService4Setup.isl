@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>GuardianSync</subject>
+		<subject>GuardianService4</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -339,8 +339,8 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>GuardianSync.Content_Files</td><td>{4F2BC159-D557-4DFE-8A38-1F896819E9E4}</td><td>INSTALLDIR</td><td>2</td><td/><td>guardiansync.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>GuardianSync.Primary_output</td><td>{B3493FB9-EB7C-448B-8B8D-FB5FEC556739}</td><td>INSTALLDIR</td><td>2</td><td/><td>guardiansync.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>GuardianService4.Content_Files</td><td>{161DE21B-CAF5-495F-B57E-271C427F2628}</td><td>INSTALLDIR</td><td>2</td><td/><td>guardianservice4.content_fil</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>GuardianService4.Primary_output</td><td>{AFFEFE77-11A6-4083-A28E-EB880B8E3956}</td><td>INSTALLDIR</td><td>2</td><td/><td>guardianservice4.primary_out</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{C91A5AFD-C2F7-4165-8B53-3FB2C468E508}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1860,8 +1860,8 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>AlwaysInstall</td><td>GuardianSync.Content_Files</td></row>
-		<row><td>AlwaysInstall</td><td>GuardianSync.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>GuardianService4.Content_Files</td></row>
+		<row><td>AlwaysInstall</td><td>GuardianService4.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
 
@@ -1877,8 +1877,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>guardiansync.content_files</td><td>GuardianSync.Content_Files</td><td>GuardianSync.Content Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;GuardianSync&gt;|ContentFiles</td><td>3</td><td/></row>
-		<row><td>guardiansync.primary_output</td><td>GuardianSync.Primary_output</td><td>GuardianSync.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;GuardianSync&gt;|Built</td><td>3</td><td/></row>
+		<row><td>guardianservice4.content_fil</td><td>GuardianService4.Content_Files</td><td>GuardianService4.Content Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;GuardianService41&gt;|ContentFiles</td><td>3</td><td/></row>
+		<row><td>guardianservice4.primary_out</td><td>GuardianService4.Primary_output</td><td>GuardianService4.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;GuardianService41&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2022,8 +2022,8 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>GuardianSync.Content_Files</td><td/><td/><td>_449D0369_86E8_49F0_9E16_FAA3DD199C5B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>GuardianSync.Primary_output</td><td/><td/><td>_A27E68C9_6BDF_4A4A_B361_00FE5CF076C2_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>GuardianService4.Content_Files</td><td/><td/><td>_6AC327D8_1033_4C4E_AB77_2A419732D721_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>GuardianService4.Primary_output</td><td/><td/><td>_368B7FA0_894E_4786_99C1_FB80AABE6005_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_E0E21830_8E68_42E5_9A40_024CE99B302F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2326,6 +2326,8 @@
 		<col def="S255">TestValue</col>
 		<col def="i4">Type</col>
 		<row><td>CommonFilesFolder</td><td/><td/><td>1</td></row>
+		<row><td>GuardianService4</td><td>GuardianSync\GuardianService4.csproj</td><td/><td>2</td></row>
+		<row><td>GuardianService41</td><td>GuardianService4\GuardianService4.csproj</td><td/><td>2</td></row>
 		<row><td>GuardianSync</td><td>GuardianSync\GuardianSync.csproj</td><td/><td>2</td></row>
 		<row><td>ISPROJECTDIR</td><td/><td/><td>1</td></row>
 		<row><td>ISProductFolder</td><td/><td/><td>1</td></row>
@@ -3748,6 +3750,8 @@
 		<row><td>ID_STRING2</td><td>1033</td><td>Guardian</td><td>0</td><td/><td>1352840713</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>GuardianService4</td><td>0</td><td/><td>1352803113</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Synchronization for Guardian</td><td>0</td><td/><td>1352835178</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Synchronization for Guardian</td><td>0</td><td/><td>1755502184</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>GuardianService4</td><td>0</td><td/><td>1755483752</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>1352799816</td></row>
 	</table>
 
@@ -3988,7 +3992,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{9BC0FF65-61E2-4036-BE27-DE313AC03EBB}</td></row>
 		<row><td>ISUSSignature</td><td>{5E5761F3-697A-462B-8EAE-214C2959A944}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppV,viewISToday,viewProject,viewInstallScriptStd,viewSystemSearch,viewSupportFiles,viewRealSetupDesign,viewFeatureFiles,viewAppFiles,viewObjects,viewDependencies,viewServices,viewCustomActions</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewAppV,viewISToday,viewProject,viewInstallScriptStd,viewSystemSearch,viewSupportFiles,viewRealSetupDesign,viewFeatureFiles,viewAppFiles,viewObjects,viewDependencies,viewServices,viewCustomActions,viewSetupTypes,viewSetupDesign,viewUpgradePaths</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4361,8 +4365,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{69AAA911-A791-42F6-8D5B-D43860553DF6}</td><td/></row>
-		<row><td>ProductName</td><td>GuardianSync</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
+		<row><td>ProductName</td><td>GuardianService4</td><td/></row>
+		<row><td>ProductVersion</td><td>4.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4484,7 +4488,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">Arguments</col>
 		<col def="I2">Wait</col>
 		<col def="s72">Component_</col>
-		<row><td>NewEvent1</td><td>GuardianService4</td><td>129</td><td/><td>0</td><td>GuardianSync.Primary_output</td></row>
+		<row><td>NewEvent1</td><td>GuardianService4</td><td>129</td><td/><td>0</td><td>GuardianService4.Primary_output</td></row>
 	</table>
 
 	<table name="ServiceInstall">
@@ -4501,7 +4505,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">Arguments</col>
 		<col def="s72">Component_</col>
 		<col def="L255">Description</col>
-		<row><td>NewServiceInstall1</td><td>GuardianService4</td><td>##ID_STRING3##</td><td>16</td><td>2</td><td>1</td><td/><td/><td/><td/><td/><td>GuardianSync.Primary_output</td><td>##ID_STRING4##</td></row>
+		<row><td>NewServiceInstall1</td><td>GuardianService4</td><td>##ID_STRING6##</td><td>16</td><td>2</td><td>1</td><td/><td/><td/><td/><td/><td>GuardianService4.Primary_output</td><td>##ID_STRING5##</td></row>
 	</table>
 
 	<table name="Shortcut">

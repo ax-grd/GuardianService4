@@ -6,7 +6,7 @@ using System.Text;
 using System.ServiceProcess;
 
 using System.Configuration.Install;
-using GuardianSync;
+using GuardianService4;
 
 namespace Uninstall
 {

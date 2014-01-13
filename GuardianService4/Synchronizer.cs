@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Timers;
-using GuardianSync.Model.Guardian;
-using GuardianSync.Model.Tiburon;
+using GuardianService4.Model.Guardian;
+using GuardianService4.Model.Tiburon;
 
-namespace GuardianSync
+namespace GuardianService4
 {
     public class Synchronizer
     {

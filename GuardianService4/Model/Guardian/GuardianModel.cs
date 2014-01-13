@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace GuardianSync.Model.Guardian
+namespace GuardianService4.Model.Guardian
 {
     public class GuardianModel
     {

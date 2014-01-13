@@ -9,11 +9,11 @@
 //------------------------------------------------------------------------------
 
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("Guardian", "FK_Inmate_Cell", "Cell", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GuardianSync.Model.Guardian.Cell), "Inmate", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GuardianSync.Model.Guardian.Inmate))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("Guardian", "FK_Inmate_Cell", "Cell", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GuardianService4.Model.Guardian.Cell), "Inmate", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GuardianService4.Model.Guardian.Inmate))]
 
 // Original file name:
-// Generation date: 1/10/2014 8:24:09 AM
-namespace GuardianSync.Model.Guardian
+// Generation date: 1/13/2014 8:40:05 AM
+namespace GuardianService4.Model.Guardian
 {
     
     /// <summary>

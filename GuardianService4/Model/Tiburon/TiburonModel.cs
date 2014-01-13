@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using GuardianSync.Model.Guardian;
-using GuardianSync.Model.Tiburon.TiburonTableAdapters;
+using GuardianService4.Model.Guardian;
+using GuardianService4.Model.Tiburon.TiburonTableAdapters;
 using System.Reflection;
 
-namespace GuardianSync.Model.Tiburon
+namespace GuardianService4.Model.Tiburon
 {
     public class TiburonModel
     {

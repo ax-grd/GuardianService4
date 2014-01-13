@@ -7,8 +7,8 @@
     <ProjectGuid>{6A9DC6F9-7F27-4D43-A5B8-AEFFDA496EF5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GuardianSync</RootNamespace>
-    <AssemblyName>GuardianSync</AssemblyName>
+    <RootNamespace>GuardianService4</RootNamespace>
+    <AssemblyName>GuardianService4</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -84,11 +84,11 @@
     </Compile>
     <Compile Include="Synchronizer.cs" />
     <Compile Include="Model\Tiburon\TiburonModel.cs" />
-    <Compile Include="GuardianSyncService.cs">
+    <Compile Include="GuardianService4.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GuardianSyncService.Designer.cs">
-      <DependentUpon>GuardianSyncService.cs</DependentUpon>
+    <Compile Include="GuardianService4.Designer.cs">
+      <DependentUpon>GuardianService4.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
